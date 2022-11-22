@@ -4,88 +4,70 @@ import java.util.ArrayList;
 
 public class Order {
 
-    // Food list
-    ArrayList<Food> foods;
-    // Drink list
-    private ArrayList<Drink> drinks;
+    // Order ID
+    private int id;
+    private double totalPrice;
+    private ArrayList<Food> foodList = new ArrayList<>();
+    private ArrayList<Drink> drinkList = new ArrayList<>();
 
     // Constructor
-    public Order() {
-        this.foods = new ArrayList<Food>();
-        this.drinks = new ArrayList<Drink>();
+    public Order(int id) {
+        this.id = id;
+    }
+
+    public Order(ArrayList<Food> foods, ArrayList<Drink> drinks) {
     }
 
     // Getters and setters
-
-    public ArrayList<Food> getFoods() {
-        return foods;
+    public int getId() {
+        return id;
     }
 
-    public void setFoods(ArrayList<Food> foods) {
-        this.foods = foods;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public ArrayList<Drink> getDrinks() {
-        return drinks;
+    public ArrayList<Food> getFoodList() {
+        return foodList;
     }
 
-    public void setDrinks(ArrayList<Drink> drinks) {
-        this.drinks = drinks;
+    public void setFoodList(ArrayList<Food> foodList) {
+        this.foodList = foodList;
+    }
+
+    public ArrayList<Drink> getDrinkList() {
+        return drinkList;
+    }   
+
+    public void setDrinkList(ArrayList<Drink> drinkList) {
+        this.drinkList = drinkList;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     // toString method
+
     @Override
     public String toString() {
-        for (Food food : foods) {
-            System.out.println(food);
-        }
-        for (Drink drink : drinks) {
-            System.out.println(drink);
-        }
-        return "+================================================================+";
+        return "Order{" + "id=" + id + ", foodList=" + foodList + ", drinkList=" + drinkList + '}';
     }
 
-    public void orderFood(Food food, int quantity) {
-        if (food.getQuantity() >= quantity) {
-            food.setQuantity(food.getQuantity() - quantity);
-            foods.add(food);
-        } else {
-            System.out.println("Not enough stock");
-        }
-    }
-
-    public void orderDrink(Drink drink, int quantity) {
-        if (drink.getQuantity() >= quantity) {
-            drink.setQuantity(drink.getQuantity() - quantity);
-            drinks.add(drink);
-        } else {
-            System.out.println("Not enough stock");
-        }
-    }
-
-    public String getTotal(int quantity1, int quantity2) {
+    //total price
+    public double totalPrice() {
         double total = 0;
-
-        for (Food food : foods) {
-            total += food.getPrice() * quantity1;
+        for (int i = 0; i < foodList.size(); i++) {
+            total += foodList.get(i).getPrice() * foodList.get(i).getQuantity();
         }
-        for (Drink drink : drinks) {
-            total += drink.getPrice() * quantity2;
+        for (int i = 0; i < drinkList.size(); i++) {
+            total += drinkList.get(i).getPrice() * drinkList.get(i).getQuantity();
         }
-        return String.format("| Total: Rp %.2f", total);
-    }
-
-    public void removeFood(Food food) {
-        foods.remove(food);
-    }
-
-    public void removeDrink(Drink drink) {
-        drinks.remove(drink);
-    }
-
-    public void clearOrder() {
-        foods.clear();
-        drinks.clear();
+        return total;
     }
 
 }

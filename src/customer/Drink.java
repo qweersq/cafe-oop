@@ -65,4 +65,6 @@ public class Drink {
         //buat seperti tabel
         return String.format("| %-18s | Rp %-12s | %-8s | %-10s |", name, price, quantity, category);
     }
+
+    
 }

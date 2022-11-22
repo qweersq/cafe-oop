@@ -19,9 +19,8 @@ public class admin {
         int choice;
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
 
-
-        customer.App.setArraylist();
         // System.out.print("\033[H\033[2J");
         do {
             // clear screen
@@ -46,11 +45,9 @@ public class admin {
                             String foodName = sc1.nextLine();
                             System.out.print("Enter food price: ");
                             int foodPrice = sc1.nextInt();
-                            System.out.print("Enter food quantity: ");
-                            int foodQuantity = sc1.nextInt();
                             System.out.println("Enter Food category: ");
-                            String foodCategory = sc1.nextLine();
-                            customer.App.addFood(foodName, foodPrice, foodQuantity, foodCategory);
+                            String foodCategory = sc2.nextLine();
+                            customer.App.addFood(foodName, foodPrice, 0, foodCategory);
                             break;
                         case 2:
                             System.out.print("Enter food name: ");
@@ -89,14 +86,12 @@ public class admin {
                     switch (choice2) {
                         case 1:
                             System.out.print("Enter drink name: ");
-                            String drinkName = sc1.nextLine();
+                            String drinkName = sc2.nextLine();
                             System.out.print("Enter drink price: ");
                             int drinkPrice = sc1.nextInt();
-                            System.out.print("Enter drink quantity: ");
-                            int drinkQuantity = sc1.nextInt();
                             System.out.println("Enter Drink category: ");
-                            String drinkCategory = sc1.nextLine();
-                            customer.App.addDrink(drinkName, drinkPrice, drinkQuantity, drinkCategory);
+                            String drinkCategory = sc2.nextLine();
+                            customer.App.addDrink(drinkName, drinkPrice, 0, drinkCategory);
                             break;
                         case 2:
                             System.out.print("Enter drink name: ");

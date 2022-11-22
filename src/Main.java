@@ -86,6 +86,7 @@ public class Main {
 
         int option;
         Scanner sc = new Scanner(System.in);
+        customer.App.setArraylist();
 
         do {
             System.out.println("\n==== Welcome to Restaurant Management System ====");

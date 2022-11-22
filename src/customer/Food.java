@@ -20,7 +20,7 @@ public class Food {
 
     }
 
-    // Getters and setters
+    // Getters and setters  
     public String getName() {
         return name;
     }
@@ -44,7 +44,7 @@ public class Food {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    // set category
+
     public String getCategory() {
         return category;
     }
@@ -52,21 +52,12 @@ public class Food {
     public void setCategory(String category) {
         this.category = category;
     }
-
+    
 
     // toString method
     @Override
     public String toString() {
         //buat seperti tabel
         return String.format("| %-18s | Rp %-12s | %-10s | %-10s |", name, price, quantity, category);
-    }
-
-    public void orderFood(Order order, int quantity) {
-        if (getQuantity() >= quantity) {
-            setQuantity(getQuantity() - quantity);
-            order.foods.add(this);
-        } else {
-            System.out.println("Not enough stock");
-        }
     }
 }
