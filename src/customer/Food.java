@@ -20,7 +20,7 @@ public class Food {
 
     }
 
-    // Getters and setters  
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -44,6 +44,15 @@ public class Food {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+    // set category
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
 
     // toString method
     @Override

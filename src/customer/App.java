@@ -32,6 +32,27 @@ public class App {
             }
         }
     }
+    // edit food from list
+    public static void editFood(String name) {
+        for (int i = 0; i < foods.size(); i++) {
+            if (foods.get(i).getName().equals(name)) {
+                System.out.println("Enter new food name: ");
+                Scanner sc = new Scanner(System.in);
+                String newName = sc.nextLine();
+                foods.get(i).setName(newName);
+                System.out.println("Enter new food price: ");
+                double newPrice = sc.nextDouble();
+                foods.get(i).setPrice(newPrice);
+                System.out.println("Enter new food quantity: ");
+                int newQuantity = sc.nextInt();
+                foods.get(i).setQuantity(newQuantity);
+                System.out.println("Enter new food type: ");
+                String newType = sc.nextLine();
+                foods.get(i).setCategory(newType);
+                System.out.println("Edit food success");
+            }
+        }
+    }
 
     public static void viewFood() {
         System.out.println("Food List");
@@ -43,6 +64,54 @@ public class App {
         }
         System.out
                 .println("+==============================================================+\n");
+    }
+    // view drink
+    public static void viewDrink() {
+        System.out.println("Drink List");
+        System.out.println("+==============================================================+");
+        System.out.println("|        Name        |      Price      |  Quantity  | Category |");
+        System.out.println("+==============================================================+");
+        for (Drink drink : drinks) {
+            System.out.println(drink);
+        }
+        System.out
+                .println("+==============================================================+\n");
+    }
+
+    // add drink
+    public static void addDrink(String name, double price, int quantity, String type) {
+        drinks.add(new Drink(name, price, quantity, type));
+    }
+
+    // delete drink
+    public static void deleteDrink(String name) {
+        for (int i = 0; i < drinks.size(); i++) {
+            if (drinks.get(i).getName().equals(name)) {
+                drinks.remove(i);
+            }
+        }
+    }
+
+    // edit drink
+    public static void editDrink(String name) {
+        for (int i = 0; i < drinks.size(); i++) {
+            if (drinks.get(i).getName().equals(name)) {
+                System.out.println("Enter new drink name: ");
+                Scanner sc = new Scanner(System.in);
+                String newName = sc.nextLine();
+                drinks.get(i).setName(newName);
+                System.out.println("Enter new drink price: ");
+                double newPrice = sc.nextDouble();
+                drinks.get(i).setPrice(newPrice);
+                System.out.println("Enter new drink quantity: ");
+                int newQuantity = sc.nextInt();
+                drinks.get(i).setQuantity(newQuantity);
+                System.out.println("Enter new drink type: ");
+                String newType = sc.nextLine();
+                drinks.get(i).setCategory(newType);
+                System.out.println("Edit drink success");
+            }
+        }
     }
 
     public static void main() {
