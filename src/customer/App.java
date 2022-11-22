@@ -20,6 +20,10 @@ public class App {
         drinks.add(new Drink("Water", 1.0, 10, "Water"));
     }
 
+    public static void addFood(String name, double price, int quantity, String type) {
+        foods.add(new Food(name, price, quantity, type));
+    }
+
     public static void viewFood() {
         System.out.println("Food List");
         System.out.println("+==============================================================+");
@@ -69,16 +73,6 @@ public class App {
                     switch (choice2) {
                         case 1:
                             viewFood();
-                            // System.out.println("Food List");
-                            // System.out.println("+==============================================================+");
-                            // System.out.println("| Name | Price | Quantity | Category |");
-                            // System.out.println("+==============================================================+");
-                            // for (Food food : foods) {
-                            // System.out.println(food);
-                            // }
-                            // System.out
-                            // .println("+==============================================================+\n");
-
                             System.out.print("Food Name: ");
                             String foodName = sc.nextLine();
                             System.out.print("Quantity: ");

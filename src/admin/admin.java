@@ -14,43 +14,58 @@ public class admin {
 
     // create menu for editing Food.java
     public static void main() {
-        // clear screen
-        System.out.print("\033[H\033[2J");
         int choice;
-        System.out.println("Welcome to Admin Page");
-        System.out.println("1. Add Food");
-        System.out.println("2. Edit Food");
-        System.out.println("3. Delete Food");
-        System.out.println("4. View Food");
-        System.out.println("5. Exit");
-        // create choose for user to choose
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter your choice: ");
-        choice = sc.nextInt();
-        // create switch case for user to choose
-        switch (choice) {
-            case 1:
-                System.out.println("\nAdd Food");
+        Scanner sc1 = new Scanner(System.in);
 
-                break;
-            case 2:
-                System.out.println("Edit Food");
-                break;
-            case 3:
-                System.out.println("Delete Food");
-                break;
-            case 4:
-                System.out.println("\nView Food");
-                customer.App.setArraylist();
-                customer.App.viewFood();
-                break;
-            case 5:
-                System.out.println("Exit");
-                break;
-            default:
-                System.out.println("Invalid choice");
-                break;
-        }
+
+        customer.App.setArraylist();
+        System.out.print("\033[H\033[2J");
+        do {
+            // clear screen
+            System.out.println("Welcome to Admin Page");
+            System.out.println("1. Add Food");
+            System.out.println("2. Edit Food");
+            System.out.println("3. Delete Food");
+            System.out.println("4. View Food");
+            System.out.println("5. Exit");
+            // create choose for user to choose
+            System.out.print("Enter your choice: ");
+            choice = sc1.nextInt();
+            // create switch case for user to choose
+            switch (choice) {
+                case 1:
+                    System.out.println("\nAdd Food");
+                    System.out.print("Enter Food Name: ");
+                    String foodName = sc.nextLine();
+                    System.out.print("Enter Food Price: ");
+                    double foodPrice = sc1.nextInt();
+                    System.out.print("Enter Food Quantity: ");
+                    Integer foodQuantity = sc1.nextInt();
+                    System.out.print("Enter Food Category: ");
+                    String foodCategory = sc.nextLine();
+                    // create new food
+                    customer.App.addFood(foodName, foodPrice, foodQuantity, foodCategory);
+
+                    break;
+                case 2:
+                    System.out.println("Edit Food");
+                    break;
+                case 3:
+                    System.out.println("Delete Food");
+                    break;
+                case 4:
+                    System.out.println("\nView Food");
+                    customer.App.viewFood();
+                    break;
+                case 5:
+                    System.out.println("Exit");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        } while (choice != 5);
 
     }
 }
