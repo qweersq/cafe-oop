@@ -20,7 +20,7 @@ public class admin {
 
 
         customer.App.setArraylist();
-        System.out.print("\033[H\033[2J");
+        // System.out.print("\033[H\033[2J");
         do {
             // clear screen
             System.out.println("Welcome to Admin Page");
@@ -53,6 +53,11 @@ public class admin {
                     break;
                 case 3:
                     System.out.println("Delete Food");
+                    //view food list
+                    customer.App.viewFood();
+                    System.out.println("Enter Food Name to delete: ");
+                    String foodName1 = sc.nextLine();
+                    customer.App.deleteFood(foodName1);
                     break;
                 case 4:
                     System.out.println("\nView Food");

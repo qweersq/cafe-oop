@@ -24,6 +24,15 @@ public class App {
         foods.add(new Food(name, price, quantity, type));
     }
 
+    // delete food from list
+    public static void deleteFood(String name) {
+        for (int i = 0; i < foods.size(); i++) {
+            if (foods.get(i).getName().equals(name)) {
+                foods.remove(i);
+            }
+        }
+    }
+
     public static void viewFood() {
         System.out.println("Food List");
         System.out.println("+==============================================================+");
