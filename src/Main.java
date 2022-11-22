@@ -82,6 +82,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+        System.out.print("\033[H\033[2J");
 
         int option;
         Scanner sc = new Scanner(System.in);
@@ -95,6 +96,7 @@ public class Main {
             option = sc.nextInt();
             switch (option) {
                 case 1:
+                System.out.println("\n==== Customer User ====");
                     customerUser();
                     break;
 

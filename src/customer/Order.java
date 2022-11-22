@@ -45,7 +45,6 @@ public class Order {
         return "+================================================================+";
     }
 
-    
     public void orderFood(Food food, int quantity) {
         if (food.getQuantity() >= quantity) {
             food.setQuantity(food.getQuantity() - quantity);
@@ -63,11 +62,13 @@ public class Order {
             System.out.println("Not enough stock");
         }
     }
-    public String getTotal(int quantity1,int quantity2) {
+
+    public String getTotal(int quantity1, int quantity2) {
         double total = 0;
+
         for (Food food : foods) {
             total += food.getPrice() * quantity1;
-        };
+        }
         for (Drink drink : drinks) {
             total += drink.getPrice() * quantity2;
         }
@@ -87,5 +88,4 @@ public class Order {
         drinks.clear();
     }
 
-   
 }
